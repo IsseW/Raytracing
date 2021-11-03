@@ -1,4 +1,5 @@
 #include <cstdint>
+#include <iostream>
 
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
@@ -9,6 +10,7 @@
 #include "OBB.h"
 #include "Triangle.h"
 #include "Plane.h"
+#include "Scene.h"
 
 int main()
 {
@@ -24,8 +26,19 @@ int main()
 
 	// To switch which main function is being used, exclude either this file from the build, or all the test files
 	// Right click file, properties, configuration properties, general, exclude from build = Yes/No
+	Scene scene(
+		Vector3D(-5, -5, -5), // Camera position
+		Vector3D(1, 1, 1), // Camera direction
+		5.0, // Camera size
+		// Shapes
+		Sphere(Vector3D(1, 1, 1), Vector3D(0, 0, 0), 2)
+	);
+
+	scene.render(imageData, width, height);
 	
 	stbi_write_png("Traced.png", width, height, channels, imageData, width * channels);
 	delete[] imageData;
+	int a;
+	std::cin >> a;
 	return 0;
 }

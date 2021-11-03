@@ -7,7 +7,8 @@
 class Plane : public Shape
 {
 private:
-	// Add member variables and helper functions as you see fit
+	Vector3D normal;
+	double distance; // Distance from origin to the closest point on the plane.
 
 public:
 	// colour: Shape colour

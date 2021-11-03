@@ -1,7 +1,6 @@
 #include "Triangle.h"
 #include <cmath>
 
-constexpr double EPS = 0.000001;
 
 
 Triangle::Triangle(const Vector3D & colour, const Vector3D & p0, const Vector3D & p1, const Vector3D & p2) : Shape(colour), p0(p0), p1(p1), p2(p2) { }

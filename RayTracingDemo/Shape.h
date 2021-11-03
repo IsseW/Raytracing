@@ -2,6 +2,7 @@
 
 #include "Vector3D.h"
 #include "Ray.h"
+constexpr double EPS = 1e-7;
 
 class Shape
 {

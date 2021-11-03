@@ -72,6 +72,9 @@
     <ClCompile Include="TestsOBB.cpp">
       <Filter>Source Files\Tests</Filter>
     </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\Other</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Disc.h">
@@ -105,6 +108,9 @@
       <Filter>Header Files\Other</Filter>
     </ClInclude>
     <ClInclude Include="Ray.h">
+      <Filter>Header Files\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
       <Filter>Header Files\Other</Filter>
     </ClInclude>
   </ItemGroup>
