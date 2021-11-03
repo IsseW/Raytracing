@@ -28,10 +28,10 @@ int main()
 	// Right click file, properties, configuration properties, general, exclude from build = Yes/No
 	Scene scene(
 		Vector3D(-5, -5, -5), // Camera position
-		Vector3D(1, 1, 1), // Camera direction
+		Vector3D(1, 1, -1), // Camera direction
 		5.0, // Camera size
 		// Shapes
-		Sphere(Vector3D(1, 1, 1), Vector3D(0, 0, 0), 2)
+		Sphere(Vector3D(1, 1, 1), Vector3D(0, 0, 0), 1)
 	);
 
 	scene.render(imageData, width, height);
