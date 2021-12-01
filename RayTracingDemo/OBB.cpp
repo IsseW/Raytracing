@@ -19,7 +19,7 @@ bool OBB::Intersection(const Ray& ray, double& t)
 
 	for (std::tuple<Vector3D, double> tp : 
 			{ 
-				std::make_tuple(this->u, this->size.GetX()), 
+				std::make_tuple(this->u, this->size.GetX()),
 				std::make_tuple(this->v, this->size.GetY()), 
 				std::make_tuple(this->w, this->size.GetZ()) 
 			})
@@ -31,11 +31,11 @@ bool OBB::Intersection(const Ray& ray, double& t)
 		double f = direction * ray.direction;
 
 		if (std::abs(f) > EPS) {
-			double t0 = (e + size) / f;
-			double t1 = (e - size) / f;
-			if (t0 > t1) std::swap(t0, t1);
-			if (t0 > tmin) tmin = t0;
-			if (t1 < tmax) tmax = t1;
+			double slab_tmin = (e + size) / f;
+			double slab_tmax = (e - size) / f;
+			if (slab_tmin > slab_tmax) std::swap(slab_tmin, slab_tmax);
+			if (slab_tmin > tmin) tmin = slab_tmin;
+			if (slab_tmax < tmax) tmax = slab_tmax;
 			if (tmin > tmax || tmax < 0) return false;
 		}
 		else if (-e + size < 0.0 || -e - size > 0.0) return false;

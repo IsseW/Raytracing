@@ -14,8 +14,8 @@
 
 int main()
 {
-	const unsigned int width = 512;
-	const unsigned int height = 512;
+	const unsigned int width = 1024;
+	const unsigned int height = 1024;
 	const int channels = 3;
 	// uint8_t = unsigned integer type consisting of 8 bits, often just unsigned char in the background
 	uint8_t* imageData = new uint8_t[width * height * channels];
@@ -27,11 +27,14 @@ int main()
 	// To switch which main function is being used, exclude either this file from the build, or all the test files
 	// Right click file, properties, configuration properties, general, exclude from build = Yes/No
 	Scene scene(
-		Vector3D(-5, -5, -5), // Camera position
-		Vector3D(1, 1, -1), // Camera direction
-		5.0, // Camera size
+		Vector3D(-3, 2.2, 3), // Camera position
+		Vector3D(1, -0.2, -1), // Camera direction
+		2.0, // Camera size
 		// Shapes
-		Sphere(Vector3D(1, 1, 1), Vector3D(0, 0, 0), 1)
+		OBB(Vector3D(0, 1, 1), Vector3D(0, 0, 0), Vector3D(1, 0, 0), Vector3D(0, 1, 0), Vector3D(0, 0, 1), 2, 2, 1),
+		Sphere(Vector3D(1, 0, 0), Vector3D(0, 2.5, 0), 1),
+		Triangle(Vector3D(0, 1, 0), Vector3D(0, 0, 1), Vector3D(0, 0, 3), Vector3D(0, 3, 2)),
+		Plane(Vector3D(0.3, 0.3, 0.3), Vector3D(0, -0.5, 0), Vector3D(0, 1, 0))
 	);
 
 	scene.render(imageData, width, height);
